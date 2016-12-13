@@ -44,9 +44,9 @@
 -printmapping mapping.txt        #混淆前后的映射
 
 -keep public class * extends android.support.** #如果有引用v4或者v7包，需添加
--libraryjars libs/xxx.jar        #混淆第三方jar包，其中xxx为jar包名
--keep class com.xxx.**{*;}       #不混淆某个包内的所有文件
--dontwarn com.xxx**              #忽略某个包的警告
+#-libraryjars libs/xxx.jar        #混淆第三方jar包，其中xxx为jar包名
+#-keep class com.xxx.**{*;}       #不混淆某个包内的所有文件
+#-dontwarn com.xxx**              #忽略某个包的警告
 -keepattributes Signature        #不混淆泛型
 -keepnames class * implements java.io.Serializable #不混淆Serializable
 
@@ -75,12 +75,8 @@
 
 #友盟统计
 -keepclassmembers class * {
-   public <init> (org.json.JSONObject);
+    public <init> (org.json.JSONObject);
 }
 -keep public class [com.adrian.game2048].R$*{
-public static final int *;
-}
--keepclassmembers enum * {
-    public static **[] values();
-    public static ** valueOf(java.lang.String);
+    public static final int *;
 }
